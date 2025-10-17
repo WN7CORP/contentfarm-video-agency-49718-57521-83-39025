@@ -28,22 +28,20 @@ const Novidades = () => {
         error
       } = await (supabase as any).from("NOVIDADES").select("*");
       if (error) throw error;
-      
+
       // Ordenar por data mais recente primeiro
       const sortedData = (data || []).sort((a: Novidade, b: Novidade) => {
         try {
           const dateA = parse(a.Dia, "dd/MM/yyyy", new Date());
           const dateB = parse(b.Dia, "dd/MM/yyyy", new Date());
-          
           if (!isValid(dateA) || !isValid(dateB)) return 0;
-          
+
           // Ordem decrescente (mais recente primeiro)
           return dateB.getTime() - dateA.getTime();
         } catch {
           return 0;
         }
       });
-      
       setNovidades(sortedData);
     } catch (error) {
       console.error("Erro ao buscar novidades:", error);
@@ -106,35 +104,9 @@ const Novidades = () => {
           {/* Calendário */}
           <Card className="mb-6 bg-card border-border">
             <CardContent className="p-4">
-              <div className="flex items-center justify-between mb-4">
-                <button
-                  onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
-                  className="p-2 hover:bg-accent rounded-lg transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <h3 className="text-base font-semibold">
-                  {format(currentMonth, "MMMM yyyy", { locale: ptBR })}
-                </h3>
-                <button
-                  onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
-                  className="p-2 hover:bg-accent rounded-lg transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
+              
 
-              <Calendar 
-                mode="single" 
-                selected={selectedDate} 
-                onSelect={setSelectedDate} 
-                month={currentMonth} 
-                onMonthChange={setCurrentMonth} 
-                modifiers={modifiers} 
-                modifiersClassNames={modifiersClassNames} 
-                locale={ptBR} 
-                className="w-full"
-              />
+              <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} month={currentMonth} onMonthChange={setCurrentMonth} modifiers={modifiers} modifiersClassNames={modifiersClassNames} locale={ptBR} className="w-full" />
 
               <div className="flex items-center gap-4 mt-4 text-xs">
                 <div className="flex items-center gap-2">
