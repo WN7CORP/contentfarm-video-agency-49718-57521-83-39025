@@ -11,25 +11,25 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn("p-3 sm:p-4 pointer-events-auto", className)}
+      className={cn("p-3 sm:p-6 lg:p-8 pointer-events-auto", className)}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
-        month: "space-y-4",
-        caption: "flex justify-center pt-1 relative items-center",
-        caption_label: "text-sm sm:text-base font-medium",
+        month: "space-y-4 sm:space-y-6",
+        caption: "flex justify-center pt-1 sm:pt-2 relative items-center mb-2 sm:mb-4",
+        caption_label: "text-sm sm:text-lg lg:text-xl font-medium",
         nav: "space-x-1 flex items-center",
         nav_button: cn(
           buttonVariants({ variant: "outline" }),
-          "h-7 w-7 sm:h-8 sm:w-8 bg-transparent p-0 opacity-50 hover:opacity-100",
+          "h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 bg-transparent p-0 opacity-50 hover:opacity-100",
         ),
-        nav_button_previous: "absolute left-1",
-        nav_button_next: "absolute right-1",
-        table: "w-full border-collapse space-y-1",
-        head_row: "flex w-full",
-        head_cell: "text-muted-foreground rounded-md flex-1 font-normal text-[0.75rem] sm:text-[0.8rem] text-center w-8 sm:w-9 min-w-8 sm:min-w-9",
-        row: "flex w-full mt-2",
-        cell: "h-8 w-8 sm:h-10 sm:w-10 flex-1 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
-        day: cn(buttonVariants({ variant: "ghost" }), "h-8 w-8 sm:h-10 sm:w-10 p-0 font-normal text-xs sm:text-sm aria-selected:opacity-100"),
+        nav_button_previous: "absolute left-1 sm:left-2",
+        nav_button_next: "absolute right-1 sm:right-2",
+        table: "w-full border-collapse space-y-1 sm:space-y-2",
+        head_row: "flex w-full gap-1 sm:gap-2 lg:gap-3",
+        head_cell: "text-muted-foreground rounded-md flex-1 font-normal text-xs sm:text-sm lg:text-base text-center min-w-[2.5rem] sm:min-w-[3.5rem] lg:min-w-[4rem]",
+        row: "flex w-full mt-1 sm:mt-2 gap-1 sm:gap-2 lg:gap-3",
+        cell: "flex-1 text-center p-0 relative min-w-[2.5rem] sm:min-w-[3.5rem] lg:min-w-[4rem] [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        day: cn(buttonVariants({ variant: "ghost" }), "h-10 w-full sm:h-14 lg:h-16 p-0 font-normal text-sm sm:text-base lg:text-lg aria-selected:opacity-100"),
         day_range_end: "day-range-end",
         day_selected:
           "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",

@@ -103,10 +103,10 @@ const Novidades = () => {
         </div> : <>
           {/* Calendário */}
           <Card className="mb-6 sm:mb-8 bg-card border-border">
-            <CardContent className="p-4 sm:p-6">
+            <CardContent className="p-3 sm:p-6 lg:p-8">
               
 
-              <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} month={currentMonth} onMonthChange={setCurrentMonth} modifiers={modifiers} modifiersClassNames={modifiersClassNames} locale={ptBR} className="w-full mx-auto" />
+              <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} month={currentMonth} onMonthChange={setCurrentMonth} modifiers={modifiers} modifiersClassNames={modifiersClassNames} locale={ptBR} className="w-full max-w-2xl mx-auto" />
 
               <div className="flex items-center gap-4 sm:gap-6 mt-4 sm:mt-6 text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
