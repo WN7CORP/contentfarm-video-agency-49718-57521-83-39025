@@ -5,7 +5,7 @@ import { BottomNav } from "./BottomNav";
 import { DesktopTopNav } from "./DesktopTopNav";
 import { AppSidebar } from "./AppSidebar";
 import { DesktopChatPanel } from "./DesktopChatPanel";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useDeviceType } from "@/hooks/use-device-type";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
-  const isMobile = useIsMobile();
+  const { isMobile, isTablet, isDesktop } = useDeviceType();
   
   // Esconder BottomNav em páginas de conteúdo jurídico e simulados
   const hideBottomNav = 
@@ -35,8 +35,8 @@ export const Layout = ({ children }: LayoutProps) => {
   // Esconder Header na página de assistentes (ela tem header próprio)
   const hideHeader = location.pathname === "/professora";
 
-  // DESKTOP LAYOUT (>= 768px)
-  if (!isMobile) {
+  // DESKTOP LAYOUT (>= 1024px)
+  if (isDesktop) {
     return (
       <div className="h-screen flex flex-col w-full bg-background text-foreground">
         <DesktopTopNav />
@@ -60,8 +60,23 @@ export const Layout = ({ children }: LayoutProps) => {
       </div>
     );
   }
+
+  // TABLET LAYOUT (640px - 1024px)
+  if (isTablet) {
+    const shouldHideBottomNav = hideBottomNav || isProfessoraChat;
+    
+    return (
+      <div className="min-h-screen bg-background text-foreground flex flex-col">
+        {!hideHeader && <Header />}
+        <main className={shouldHideBottomNav ? "flex-1 w-full max-w-5xl mx-auto px-4" : "flex-1 pb-20 w-full max-w-5xl mx-auto px-4"}>
+          {children}
+        </main>
+        {!shouldHideBottomNav && <BottomNav />}
+      </div>
+    );
+  }
   
-  // MOBILE LAYOUT (< 768px) - mantém como está
+  // MOBILE LAYOUT (< 640px)
   const shouldHideBottomNav = hideBottomNav || isProfessoraChat;
   
   return (
