@@ -1074,23 +1074,17 @@ export type Database = {
         Row: {
           Área: string | null
           Atualização: string | null
-          created_at: string | null
           Dia: string | null
-          id: number
         }
         Insert: {
           Área?: string | null
           Atualização?: string | null
-          created_at?: string | null
           Dia?: string | null
-          id: number
         }
         Update: {
           Área?: string | null
           Atualização?: string | null
-          created_at?: string | null
           Dia?: string | null
-          id?: number
         }
         Relationships: []
       }
@@ -1109,69 +1103,6 @@ export type Database = {
           id?: number
           Link?: string | null
           Petições?: string | null
-        }
-        Relationships: []
-      }
-      "RANKING FALCULDADE": {
-        Row: {
-          Estado: string | null
-          "Nota da OAB": number | null
-          "Nota dos concluintes": number | null
-          "Nota em avaliação do Mercado": number | null
-          "Nota em avaliação dos docentes": number | null
-          "Nota em Professores com doutorado e mestrado": number | null
-          "Nota em qualidade de ensino": number | null
-          "Nota em Tempo de Dedicação dos Professores": number | null
-          Posição: number | null
-          "Posição em avaliação do Mercado": string | null
-          "Posição em avaliação dos docentes": number | null
-          "Posição em Professores com doutorado e mestrado": string | null
-          "Posição em qualidade de ensino": string | null
-          "Posição em Tempo de Dedicação dos Professores": string | null
-          "Posição Nota da OAB": number | null
-          "Posição Nota dos concluintes": string | null
-          "Pública ou Privada": string | null
-          Universidade: string
-        }
-        Insert: {
-          Estado?: string | null
-          "Nota da OAB"?: number | null
-          "Nota dos concluintes"?: number | null
-          "Nota em avaliação do Mercado"?: number | null
-          "Nota em avaliação dos docentes"?: number | null
-          "Nota em Professores com doutorado e mestrado"?: number | null
-          "Nota em qualidade de ensino"?: number | null
-          "Nota em Tempo de Dedicação dos Professores"?: number | null
-          Posição?: number | null
-          "Posição em avaliação do Mercado"?: string | null
-          "Posição em avaliação dos docentes"?: number | null
-          "Posição em Professores com doutorado e mestrado"?: string | null
-          "Posição em qualidade de ensino"?: string | null
-          "Posição em Tempo de Dedicação dos Professores"?: string | null
-          "Posição Nota da OAB"?: number | null
-          "Posição Nota dos concluintes"?: string | null
-          "Pública ou Privada"?: string | null
-          Universidade: string
-        }
-        Update: {
-          Estado?: string | null
-          "Nota da OAB"?: number | null
-          "Nota dos concluintes"?: number | null
-          "Nota em avaliação do Mercado"?: number | null
-          "Nota em avaliação dos docentes"?: number | null
-          "Nota em Professores com doutorado e mestrado"?: number | null
-          "Nota em qualidade de ensino"?: number | null
-          "Nota em Tempo de Dedicação dos Professores"?: number | null
-          Posição?: number | null
-          "Posição em avaliação do Mercado"?: string | null
-          "Posição em avaliação dos docentes"?: number | null
-          "Posição em Professores com doutorado e mestrado"?: string | null
-          "Posição em qualidade de ensino"?: string | null
-          "Posição em Tempo de Dedicação dos Professores"?: string | null
-          "Posição Nota da OAB"?: number | null
-          "Posição Nota dos concluintes"?: string | null
-          "Pública ou Privada"?: string | null
-          Universidade?: string
         }
         Relationships: []
       }
