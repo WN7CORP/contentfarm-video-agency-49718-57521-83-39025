@@ -106,9 +106,35 @@ const Novidades = () => {
           {/* Calendário */}
           <Card className="mb-6 bg-card border-border">
             <CardContent className="p-4">
-              
+              <div className="flex items-center justify-between mb-4">
+                <button
+                  onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
+                  className="p-2 hover:bg-accent rounded-lg transition-colors"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <h3 className="text-base font-semibold">
+                  {format(currentMonth, "MMMM yyyy", { locale: ptBR })}
+                </h3>
+                <button
+                  onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
+                  className="p-2 hover:bg-accent rounded-lg transition-colors"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
 
-              <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} month={currentMonth} onMonthChange={setCurrentMonth} modifiers={modifiers} modifiersClassNames={modifiersClassNames} locale={ptBR} className="w-full [&_.rdp-caption_label]:hidden [&_.rdp-nav]:hidden" />
+              <Calendar 
+                mode="single" 
+                selected={selectedDate} 
+                onSelect={setSelectedDate} 
+                month={currentMonth} 
+                onMonthChange={setCurrentMonth} 
+                modifiers={modifiers} 
+                modifiersClassNames={modifiersClassNames} 
+                locale={ptBR} 
+                className="w-full"
+              />
 
               <div className="flex items-center gap-4 mt-4 text-xs">
                 <div className="flex items-center gap-2">
